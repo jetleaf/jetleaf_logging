@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="jetleaf_logging API docs, for the Dart programming language.">
+  <title>jetleaf_logging - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="https://jetleaf.hapnium.com">jetleaf_logging package</a></li>
+  </ol>
+  <div class="self-name">jetleaf_logging</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="jetleaf-logging">JetLeaf Logging</h1>
+<p><a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a></p>
+<p>A powerful, extensible logging library for Dart applications that provides flexible logging capabilities with support for ANSI colors, custom formatting, and multiple output formats.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>🎨 <strong>ANSI Color Support</strong>: Beautiful, color-coded output for better log readability</li>
+<li>🖨️ <strong>Multiple Printer Types</strong>: Choose from various log printers (simple, pretty, flat, structured, etc.)</li>
+<li>📊 <strong>Log Levels</strong>: Built-in support for different log levels (debug, info, warning, error, etc.)</li>
+<li>🧩 <strong>Extensible</strong>: Easily create custom log printers and formatters</li>
+<li>🏗️ <strong>Structured Logging</strong>: Support for structured logging with metadata</li>
+<li>🔍 <strong>Stack Trace Parsing</strong>: Built-in stack trace parsing for better debugging</li>
+<li>⚡ <strong>High Performance</strong>: Optimized for performance in production environments</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>Add this to your package's <code>pubspec.yaml</code> file:</p>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  jetleaf_logging: ^1.0.0
+</code></pre>
+<h2 id="quick-start">Quick Start</h2>
+<pre class="language-dart"><code class="language-dart">import 'package:jetleaf_logging/jetleaf_logging.dart';
+
+void main() {
+  // Create a logger
+  final logger = Logger();
+  
+  // Log messages at different levels
+  logger.d('Debug message');
+  logger.i('Info message');
+  logger.w('Warning message');
+  logger.e('Error message', error: 'Something went wrong');
+  
+  // Log with custom printer
+  final prettyPrinter = PrettyPrinter(
+    colors: true,
+    printEmojis: true,
+  );
+  
+  logger.d('This will be pretty printed', printer: prettyPrinter);
+}
+</code></pre>
+<h2 id="documentation">Documentation</h2>
+<p>For detailed documentation, see the <a href="./doc/">docs</a> directory.</p>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are welcome! Please read our <a href="CONTRIBUTING.md">contributing guidelines</a> before submitting pull requests.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+<hr>
+<p>Developed with ❤️ by the JetLeaf Team</p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="logging">
+  <span class="name"><a href="logging/">logging</a></span> 
+
+</dt>
+<dd>A flexible and extensible structured logging library for Dart and Flutter.
+</dd>
+
+          <dt id="printers">
+  <span class="name"><a href="printers/">printers</a></span> 
+
+</dt>
+<dd>This library provides a set of log printers that can be used to format log records into a string representation.
+</dd>
+
+        </dl>
+      </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="https://jetleaf.hapnium.com">jetleaf_logging package</a></li>
+</ol>
+
+    <h5 class="hidden-xs"><span class="package-name">jetleaf_logging</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="logging/">logging</a></li>
+      <li><a href="printers/">printers</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+</main>
+<footer>
+  <span class="no-break">
+    jetleaf_logging
+      1.0.0
+  </span>
+  
+</footer>
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

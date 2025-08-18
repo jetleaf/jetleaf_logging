@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the Log class from the logging library, for the Dart programming language.">
+  <title>Log class - logging library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">jetleaf_logging</a></li>
+    <li><a href="../logging/">logging.dart</a></li>
+    <li class="self-crumb">Log class</li>
+  </ol>
+  <div class="self-name">Log</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="logging&#47;logging-library-sidebar.html"
+    data-below-sidebar="logging&#47;Log-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">Log</span> class 
+    <a href="https://dart.dev/language/class-modifiers#final" class="feature feature-final" title="This class can neither be extended, implemented, nor mixed in.">final</a>
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>A convenient logging utility built on top of <a href="../logging/LogFactory-class.html">LogFactory</a>.</p>
+<p>The <code>Log</code> class provides a simplified and readable interface for
+logging messages at various log levels such as info, warning, error,
+debug, fatal, and trace. It is typically used throughout the JetLeaf
+framework to emit consistent and structured log output.</p>
+<h3 id="example">Example:</h3>
+<pre class="language-dart"><code class="language-dart">final log = Log('MyComponent');
+
+log.info('Application started.');
+log.error('Something went wrong.', error: exception, stacktrace: stack);
+log.debug('Debugging some internal state...');
+</code></pre>
+<p>The <code>tag</code> passed to the constructor is used to identify the origin
+of log messages, such as a class or module name.</p>
+<p>This class is <code>final</code>, so it cannot be extended.</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a></li>
+        <li><a href="../logging/LogFactory-class.html">LogFactory</a></li>
+      <li>Log</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="Log.new" class="callable">
+          <span class="name"><a href="../logging/Log/Log.html">Log.new</a></span><span class="signature">(<span class="parameter" id="-param-tag"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">tag</span>, {</span><span class="parameter" id="-param-canPublish"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">canPublish</span> = <span class="default-value">true</span></span>})</span>
+        </dt>
+        <dd>
+          A convenient logging utility built on top of <a href="../logging/LogFactory-class.html">LogFactory</a>.
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="canPublish" class="property inherited">
+  <span class="name"><a href="../logging/LogFactory/canPublish.html">canPublish</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the logger can publish logs to the console.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="entry" class="property inherited">
+  <span class="name"><a href="../logging/LogFactory/entry.html">entry</a></span>
+  <span class="signature">&#8594; <a href="../logging/LogEntry.html">LogEntry</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the log entry for the current logger.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="logListener" class="property inherited">
+  <span class="name"><a href="../logging/LogFactory/logListener.html">logListener</a></span>
+  <span class="signature">&#8594; <a href="../logging/LoggingListener-class.html">LoggingListener</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The <code>LogListener</code> to use for this factory.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="tag" class="property inherited">
+  <span class="name"><a href="../logging/LogFactory/tag.html">tag</a></span>
+  <span class="signature">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A custom label or category used to identify the logger instance.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="add" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-level"><span class="type-annotation"><a href="../logging/LogLevel.html">LogLevel</a></span> <span class="parameter-name">level</span>, </span><span class="parameter" id="add-param-message"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="add-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="add-param-stacktrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stacktrace</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds a <code>message</code> to the log buffer under the specified <code>level</code>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="addAll" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/addAll.html">addAll</a></span><span class="signature">(<wbr><span class="parameter" id="addAll-param-entry"><span class="type-annotation"><a href="../logging/LogEntry.html">LogEntry</a></span> <span class="parameter-name">entry</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Adds all logs from the given <code>entry</code> to the internal super entry buffer.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="clear" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/clear.html">clear</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Clears all logs from every <a href="../logging/LogLevel.html">LogLevel</a>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="debug" class="callable">
+  <span class="name"><a href="../logging/Log/debug.html">debug</a></span><span class="signature">(<wbr><span class="parameter" id="debug-param-message"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="debug-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="debug-param-stacktrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stacktrace</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Logs a message at the <code>DEBUG</code> level.
+  
+
+</dd>
+
+        <dt id="error" class="callable">
+  <span class="name"><a href="../logging/Log/error.html">error</a></span><span class="signature">(<wbr><span class="parameter" id="error-param-message"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="error-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="error-param-stacktrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stacktrace</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Logs a message at the <code>ERROR</code> level.
+  
+
+</dd>
+
+        <dt id="fatal" class="callable">
+  <span class="name"><a href="../logging/Log/fatal.html">fatal</a></span><span class="signature">(<wbr><span class="parameter" id="fatal-param-message"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="fatal-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="fatal-param-stacktrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stacktrace</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Logs a message at the <code>FATAL</code> level.
+  
+
+</dd>
+
+        <dt id="getError" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getError.html">getError</a></span><span class="signature">(<wbr><span class="parameter" id="getError-param-content"><span class="type-annotation"><a href="../logging/LogContent.html">LogContent</a></span> <span class="parameter-name">content</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the error from the given <code>content</code>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getIsAllowed" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getIsAllowed.html">getIsAllowed</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the logger is allowed to publish logs to the console.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getIsDebugEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getIsDebugEnabled.html">getIsDebugEnabled</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns whether <code>DEBUG</code>-level logging is currently enabled.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getIsErrorEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getIsErrorEnabled.html">getIsErrorEnabled</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns whether <code>ERROR</code>-level logging is currently enabled.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getIsFatalEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getIsFatalEnabled.html">getIsFatalEnabled</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns whether <code>FATAL</code>-level logging is currently enabled.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getIsInfoEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getIsInfoEnabled.html">getIsInfoEnabled</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns whether <code>INFO</code>-level logging is currently enabled.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getIsTraceEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getIsTraceEnabled.html">getIsTraceEnabled</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns whether <code>TRACE</code>-level logging is currently enabled.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getIsWarnEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getIsWarnEnabled.html">getIsWarnEnabled</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns whether <code>WARN</code>-level logging is currently enabled.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getMessage" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getMessage.html">getMessage</a></span><span class="signature">(<wbr><span class="parameter" id="getMessage-param-content"><span class="type-annotation"><a href="../logging/LogContent.html">LogContent</a></span> <span class="parameter-name">content</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the message from the given <code>content</code>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="getStackTrace" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/getStackTrace.html">getStackTrace</a></span><span class="signature">(<wbr><span class="parameter" id="getStackTrace-param-content"><span class="type-annotation"><a href="../logging/LogContent.html">LogContent</a></span> <span class="parameter-name">content</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns the stack trace from the given <code>content</code>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="info" class="callable">
+  <span class="name"><a href="../logging/Log/info.html">info</a></span><span class="signature">(<wbr><span class="parameter" id="info-param-message"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="info-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="info-param-stacktrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stacktrace</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Logs a message at the <code>INFO</code> level.
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="publish" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/publish.html">publish</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Publishes all logs to the console.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="setIsAllowed" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/setIsAllowed.html">setIsAllowed</a></span><span class="signature">(<wbr><span class="parameter" id="setIsAllowed-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Sets whether logging is allowed globally.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="setIsDebugEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/setIsDebugEnabled.html">setIsDebugEnabled</a></span><span class="signature">(<wbr><span class="parameter" id="setIsDebugEnabled-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Enables or disables <code>DEBUG</code>-level logging.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="setIsErrorEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/setIsErrorEnabled.html">setIsErrorEnabled</a></span><span class="signature">(<wbr><span class="parameter" id="setIsErrorEnabled-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Enables or disables <code>ERROR</code>-level logging.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="setIsFatalEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/setIsFatalEnabled.html">setIsFatalEnabled</a></span><span class="signature">(<wbr><span class="parameter" id="setIsFatalEnabled-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Enables or disables <code>FATAL</code>-level logging.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="setIsInfoEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/setIsInfoEnabled.html">setIsInfoEnabled</a></span><span class="signature">(<wbr><span class="parameter" id="setIsInfoEnabled-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Enables or disables <code>INFO</code>-level logging.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="setIsTraceEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/setIsTraceEnabled.html">setIsTraceEnabled</a></span><span class="signature">(<wbr><span class="parameter" id="setIsTraceEnabled-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Enables or disables <code>TRACE</code>-level logging.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="setIsWarnEnabled" class="callable inherited">
+  <span class="name"><a href="../logging/LogFactory/setIsWarnEnabled.html">setIsWarnEnabled</a></span><span class="signature">(<wbr><span class="parameter" id="setIsWarnEnabled-param-value"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">value</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Enables or disables <code>WARN</code>-level logging.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="trace" class="callable">
+  <span class="name"><a href="../logging/Log/trace.html">trace</a></span><span class="signature">(<wbr><span class="parameter" id="trace-param-message"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="trace-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="trace-param-stacktrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stacktrace</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Logs a message at the <code>TRACE</code> level.
+  
+
+</dd>
+
+        <dt id="warn" class="callable">
+  <span class="name"><a href="../logging/Log/warn.html">warn</a></span><span class="signature">(<wbr><span class="parameter" id="warn-param-message"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="warn-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="warn-param-stacktrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stacktrace</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Logs a message at the <code>WARN</code> level.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">jetleaf_logging</a></li>
+    <li><a href="../logging/">logging</a></li>
+    <li class="self-crumb">Log class</li>
+</ol>
+
+    <h5>logging library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    jetleaf_logging
+      1.0.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

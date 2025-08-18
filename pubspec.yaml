@@ -1,0 +1,27 @@
+name: jetleaf_logging
+description: A library that provides a pluggable, highly customizable logging solution for applications that require clarity, consistency, and control over how logs are captured, formatted, and displayed.
+version: 1.0.0
+
+homepage: https://jetleaf.hapnium.com
+repository: https://github.com/jetleaf/jetleaf_logging
+
+topics:
+- Logging
+- Printing
+- Ansi
+
+keywords:
+- Logging
+- Printing
+- Ansi
+
+environment:
+  sdk: ^3.9.0
+
+dependencies:
+  jetleaf_lang:
+    path: ../jetleaf_lang
+
+dev_dependencies:
+  test: ^1.21.0
+  lints: ^6.0.0

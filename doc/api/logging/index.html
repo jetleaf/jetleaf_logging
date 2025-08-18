@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="logging library API docs, for the Dart programming language.">
+  <title>logging library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">jetleaf_logging</a></li>
+    <li class="self-crumb">logging.dart</li>
+  </ol>
+  <div class="self-name">logging</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar=""
+    data-below-sidebar="logging&#47;logging-library-sidebar.html">
+  
+    <div>
+      
+
+      <h1>
+        <span class="kind-library">logging</span>
+        library 
+ 
+
+      </h1>
+    </div>
+
+    
+<section class="desc markdown">
+  <p>A flexible and extensible structured logging library for Dart and Flutter.</p>
+<p>The <code>jetleaf_log</code> library provides a pluggable, highly customizable logging solution
+for applications that require clarity, consistency, and control over how logs are
+captured, formatted, and displayed.</p>
+<hr>
+<h3 id="-features">🔧 Features:</h3>
+<ul>
+<li>Multiple log levels: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code></li>
+<li>Structured, human-readable, and colorized output</li>
+<li>Supports tagging, timestamps, error handling, stack traces, and more</li>
+<li>Easily switch or create custom log output styles via <code>LogPrinter</code></li>
+<li>Customizable logging steps (<code>LogStep</code>) to include/exclude parts of a log</li>
+</ul>
+<hr>
+<h3 id="-built-in-printer-types-via-logtype">🖨️ Built-in Printer Types (via <code>LogType</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Output Style</th>
+<th>Structured</th>
+<th>Colorized</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SIMPLE</code></td>
+<td>Concise single-line output with optional emoji and tags</td>
+<td>Minimal</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td><code>FLAT</code></td>
+<td>Flat, raw output of the message only</td>
+<td>Plain</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>FLAT_STRUCTURED</code></td>
+<td>Flat output with structured fields like level, timestamp, etc.</td>
+<td>One-line Structured</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>PRETTY</code></td>
+<td>Formatted and aligned multi-line logs</td>
+<td>Multi-line</td>
+<td>❌</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td><code>PRETTY_STRUCTURED</code></td>
+<td>Verbose, pretty-printed logs with section headers and stack traces</td>
+<td>Multi-line Structured</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+<tr>
+<td><code>PREFIX</code></td>
+<td>Logs prefixed with info like <code>[T:main]</code> or <code>[INFO]</code></td>
+<td>Prefixed</td>
+<td>✔️</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>FMT</code></td>
+<td>C-style formatted string logger</td>
+<td>Formatted Strings</td>
+<td>❌</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><code>HYBRID</code></td>
+<td>Combines pretty and structured logging for detailed yet readable output</td>
+<td>Mixed Style</td>
+<td>✔️</td>
+<td>✔️</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="-creating-a-custom-printer">🛠️ Creating a Custom Printer</h3>
+<p>To define a custom log printer, extend the <a href="../logging/LogPrinter-class.html">LogPrinter</a> abstract class:</p>
+<pre class="language-dart"><code class="language-dart">class MyCustomPrinter extends LogPrinter {
+  @override
+  List&lt;String&gt; log(LogRecord record) {
+    return ['[${record.level.name}] ${record.message}'];
+  }
+}
+</code></pre>
+<p>Then attach your printer to a custom tracing listener:</p>
+<pre class="language-dart"><code class="language-dart">final myLogger = Jet();
+myLogger.addListener(LoggerListener.withPrinter(MyCustomPrinter()));
+myLogger.info('Hello from custom logger!');
+</code></pre>
+<hr>
+<h3 id="-quick-usage-example">🧪 Quick Usage Example</h3>
+<pre class="language-dart"><code class="language-dart">import 'package:jetleaf/logger.dart';
+
+void main() {
+  console.debug('Initializing system...');
+  console.error('Failed to connect', error: Exception('Timeout'));
+}
+</code></pre>
+<hr>
+<h3 id="-exports">📦 Exports:</h3>
+<p>This library exports core types and interfaces:</p>
+<ul>
+<li><a href="../logging/LogLevel.html">LogLevel</a> — log severity levels</li>
+<li><a href="../logging/LogStep.html">LogStep</a> — defines log components like timestamp, message, error, etc.</li>
+<li><code>JetType</code> — enum for built-in printer styles</li>
+<li><a href="../logging/LogPrinter-class.html">LogPrinter</a> — base class for custom printer implementations</li>
+<li><a href="../logging/LoggingListener-class.html">LoggingListener</a> — interface for log event listening</li>
+</ul>
+<p>@author Evaristus Adimonyemma
+@emailAddress <a href="mailto:evaristusadimonyemma@hapnium.com">evaristusadimonyemma@hapnium.com</a>
+@organization Hapnium
+@website <a href="https://hapnium.com">https://hapnium.com</a></p>
+</section>
+
+
+    <section class="summary offset-anchor" id="classes">
+      <h2>Classes</h2>
+      <dl>
+          <dt id="AnsiColor">
+  <span class="name "><a href="../logging/AnsiColor-class.html">AnsiColor</a></span> 
+
+</dt>
+<dd>
+  A utility class to apply ANSI terminal color codes to strings.
+</dd>
+
+          <dt id="AnsiOutput">
+  <span class="name "><a href="../logging/AnsiOutput-class.html">AnsiOutput</a></span> 
+
+</dt>
+<dd>
+  A utility class for formatting terminal output using ANSI colors and background styles.
+</dd>
+
+          <dt id="JetLeafLoggingListener">
+  <span class="name "><a href="../logging/JetLeafLoggingListener-class.html">JetLeafLoggingListener</a></span> 
+
+</dt>
+<dd>
+  A default implementation of <a href="../logging/LoggingListener-class.html">LoggingListener</a> that outputs logs to the console.
+</dd>
+
+          <dt id="Log">
+  <span class="name "><a href="../logging/Log-class.html">Log</a></span> 
+
+</dt>
+<dd>
+  A convenient logging utility built on top of <a href="../logging/LogFactory-class.html">LogFactory</a>.
+</dd>
+
+          <dt id="LogConfig">
+  <span class="name "><a href="../logging/LogConfig-class.html">LogConfig</a></span> 
+
+</dt>
+<dd>
+  Configuration class that controls the appearance and content of log output.
+</dd>
+
+          <dt id="LogFactory">
+  <span class="name "><a href="../logging/LogFactory-class.html">LogFactory</a></span> 
+
+</dt>
+<dd>
+  A base class for building structured logging mechanisms within Jet-based applications.
+</dd>
+
+          <dt id="Logger">
+  <span class="name "><a href="../logging/Logger-class.html">Logger</a></span> 
+
+</dt>
+<dd>
+  A flexible and extensible logging interface.
+</dd>
+
+          <dt id="LoggingListener">
+  <span class="name "><a href="../logging/LoggingListener-class.html">LoggingListener</a></span> 
+
+</dt>
+<dd>
+  A listener interface for reacting to logging events within an application.
+</dd>
+
+          <dt id="LogPrinter">
+  <span class="name "><a href="../logging/LogPrinter-class.html">LogPrinter</a></span> 
+
+</dt>
+<dd>
+  A base class for implementing custom log output formatting.
+</dd>
+
+      </dl>
+    </section>
+
+    <section class="summary offset-anchor" id="enums">
+      <h2>Enums</h2>
+      <dl>
+          <dt id="LogLevel">
+  <span class="name "><a href="../logging/LogLevel.html">LogLevel</a></span> 
+
+</dt>
+<dd>
+  Defines various levels of logging severity for controlling logging output.
+</dd>
+
+          <dt id="LogStep">
+  <span class="name "><a href="../logging/LogStep.html">LogStep</a></span> 
+
+</dt>
+<dd>
+  Defines individual components (steps) that can be included in log output.
+</dd>
+
+          <dt id="LogType">
+  <span class="name "><a href="../logging/LogType.html">LogType</a></span> 
+
+</dt>
+<dd>
+  Specifies the overall formatting strategy used for log output.
+</dd>
+
+      </dl>
+    </section>
+
+
+
+
+
+    <section class="summary offset-anchor" id="properties">
+      <h2>Properties</h2>
+      <dl class="properties">
+          <dt id="console" class="property">
+  <span class="name"><a href="../logging/console.html">console</a></span>
+  <span class="signature">&#8594; <a href="../logging/Logger-class.html">Logger</a></span>
+  
+
+</dt>
+<dd>
+  Global singleton logger instance for convenience.
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+      </dl>
+    </section>
+
+
+    <section class="summary offset-anchor" id="typedefs">
+      <h2>Typedefs</h2>
+      <dl>
+          
+  <dt id="LogContent" class="">
+  <span class="name"><a href="../logging/LogContent.html">LogContent</a></span>
+    = <a href="https://api.dart.dev/stable/3.9.0/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>
+  </span>
+  
+
+</dt>
+<dd>
+  The log content.
+  
+
+</dd>
+
+
+          
+  <dt id="LogEntry" class="">
+  <span class="name"><a href="../logging/LogEntry.html">LogEntry</a></span>
+    = <a href="https://api.dart.dev/stable/3.9.0/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span>, <span class="type-parameter">_LogInformation</span>&gt;</span>
+  </span>
+  
+
+</dt>
+<dd>
+  The log entry.
+  
+
+</dd>
+
+
+      </dl>
+    </section>
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">jetleaf_logging</a></li>
+    <li class="self-crumb">logging.dart</li>
+</ol>
+
+    <h5><span class="package-name">jetleaf_logging</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="../logging/">logging</a></li>
+      <li><a href="../printers/">printers</a></li>
+</ol>
+
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+    <h5>logging library</h5>
+  </div><!--/sidebar-offcanvas-right-->
+</main>
+<footer>
+  <span class="no-break">
+    jetleaf_logging
+      1.0.0
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
