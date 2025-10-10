@@ -6,14 +6,14 @@ homepage: https://jetleaf.hapnium.com
 repository: https://github.com/jetleaf/jetleaf_logging
 
 topics:
-- Logging
-- Printing
-- Ansi
+- logging
+- printing
+- ansi
 
 keywords:
-- Logging
-- Printing
-- Ansi
+- logging
+- printing
+- ansi
 
 environment:
   sdk: ^3.9.0
