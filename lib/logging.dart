@@ -100,8 +100,9 @@ library;
 
 import 'src/enums/log_level.dart';
 import 'src/enums/log_type.dart';
-import 'src/log_printer.dart';
-import 'src/logging_listener.dart';
+import 'src/core/log_printer.dart';
+import 'src/core/log_processor.dart';
+import 'src/core/logging_listener.dart';
 import 'src/models/log_config.dart';
 
 /// ENUMS & Interfaces exported for external use.
@@ -113,11 +114,13 @@ export 'src/ansi/ansi_color.dart';
 export 'src/ansi/ansi_output.dart';
 
 export 'src/models/log_config.dart';
+export 'src/models/log_record.dart';
 
-export 'src/log_printer.dart';
-export 'src/logging_listener.dart';
+export 'src/core/log_printer.dart';
+export 'src/core/logging_listener.dart';
 
-export 'src/log_factory.dart';
+export 'src/core/log_factory.dart';
+export 'src/core/log.dart';
 
 /// {@template logger}
 /// A flexible and extensible logging interface.
@@ -141,7 +144,7 @@ export 'src/log_factory.dart';
 /// ```
 /// 
 /// {@endtemplate}
-class Logger {
+class Logger implements LogProcessor {
   /// The current log listener responsible for handling the log output logic.
   ///
   /// You can override this with a custom [LoggingListener] via [addListener()]
@@ -156,7 +159,8 @@ class Logger {
     void Function(String)? output,
     String name = "",
     LogConfig? config,
-  }) : listener = JetLeafLoggingListener(
+    LoggingListener? listener,
+  }) : listener = listener ?? DefaultLoggingListener(
     level: level,
     printer: printer,
     type: type,
@@ -178,11 +182,34 @@ class Logger {
     this.listener = listener;
   }
 
-  /// Logs a message with [LogLevel.INFO].
-  ///
-  /// Use this for standard log messages that confirm normal application behavior.
+  @override
   void info(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
     listener.onLog(LogLevel.INFO, message, error: error, stackTrace: stackTrace, tag: tag);
+  }
+
+  @override
+  void warn(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
+    listener.onLog(LogLevel.WARN, message, error: error, stackTrace: stackTrace, tag: tag);
+  }
+
+  @override
+  void error(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
+    listener.onLog(LogLevel.ERROR, message, error: error, stackTrace: stackTrace, tag: tag);
+  }
+
+  @override
+  void fatal(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
+    listener.onLog(LogLevel.FATAL, message, error: error, stackTrace: stackTrace, tag: tag);
+  }
+
+  @override
+  void debug(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
+    listener.onLog(LogLevel.DEBUG, message, error: error, stackTrace: stackTrace, tag: tag);
+  }
+
+  @override
+  void trace(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
+    listener.onLog(LogLevel.TRACE, message, error: error, stackTrace: stackTrace, tag: tag);
   }
 
   /// Logs a message with a specified log level.
@@ -190,46 +217,6 @@ class Logger {
   /// Use this for logging messages with a specific log level.
   void log(dynamic message, {String? tag, Object? error, StackTrace? stackTrace, LogLevel level = LogLevel.INFO}) {
     listener.onLog(level, message, error: error, stackTrace: stackTrace, tag: tag);
-  }
-
-  /// Logs a message with [LogLevel.ERROR].
-  ///
-  /// Use this when something has gone wrong and requires investigation,
-  /// but may not crash the application.
-  void error(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
-    listener.onLog(LogLevel.ERROR, message, error: error, stackTrace: stackTrace, tag: tag);
-  }
-
-  /// Logs a message with [LogLevel.WARN].
-  ///
-  /// Use this when something unexpected occurred or is about to fail.
-  /// Warnings may not be errors but are worthy of attention.
-  void warn(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
-    listener.onLog(LogLevel.WARN, message, error: error, stackTrace: stackTrace, tag: tag);
-  }
-
-  /// Logs a message with [LogLevel.DEBUG].
-  ///
-  /// Intended for debugging purposes. These logs are verbose and usually
-  /// not shown in production environments.
-  void debug(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
-    listener.onLog(LogLevel.DEBUG, message, error: error, stackTrace: stackTrace, tag: tag);
-  }
-
-  /// Logs a message with [LogLevel.TRACE].
-  ///
-  /// Use this for deep tracing information such as lifecycle details,
-  /// low-level diagnostics, or fine-grained application flow.
-  void trace(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
-    listener.onLog(LogLevel.TRACE, message, error: error, stackTrace: stackTrace, tag: tag);
-  }
-
-  /// Logs a message with [LogLevel.FATAL].
-  ///
-  /// Use this to log critical application failures.
-  /// These logs should alert developers/operators immediately.
-  void fatal(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
-    listener.onLog(LogLevel.FATAL, message, error: error, stackTrace: stackTrace, tag: tag);
   }
 }
 

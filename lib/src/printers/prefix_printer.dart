@@ -17,7 +17,7 @@ import '../ansi/ansi_output.dart';
 import '../enums/log_level.dart';
 import '../helpers/commons.dart';
 import '../models/log_record.dart';
-import '../log_printer.dart';
+import '../core/log_printer.dart';
 import '../models/log_config.dart';
 import '../enums/log_step.dart';
 

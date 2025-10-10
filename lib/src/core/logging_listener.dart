@@ -12,19 +12,11 @@
 // 
 // 🔧 Powered by Hapnium — the Dart backend engine 🍃
 
-import 'enums/log_level.dart';
-import 'enums/log_type.dart';
+import '../enums/log_level.dart';
+import '../enums/log_type.dart';
 import 'log_printer.dart';
-import 'models/log_config.dart';
-import 'models/log_record.dart';
-import 'printers/flat_printer.dart';
-import 'printers/flat_structured_printer.dart';
-import 'printers/fmt_printer.dart';
-import 'printers/hybrid_printer.dart';
-import 'printers/prefix_printer.dart';
-import 'printers/pretty_printer.dart';
-import 'printers/pretty_structured_printer.dart';
-import 'printers/simple_printer.dart';
+import '../models/log_config.dart';
+import '../models/log_record.dart';
 
 /// {@template application_log_listener}
 /// A listener interface for reacting to logging events within an application.
@@ -81,30 +73,9 @@ abstract class LoggingListener {
     String name = "",
     LogConfig? config,
   }) : _level = level, 
-    _printer = printer ?? _getPrinter(type, config ?? LogConfig()), 
+    _printer = printer ?? LogPrinter.get(type, config ?? LogConfig()), 
     _output = output, 
     _name = name;
-
-  static LogPrinter _getPrinter(LogType type, LogConfig config) {
-    switch (type) {
-      case LogType.PRETTY:
-        return PrettyPrinter(config: config);
-      case LogType.PRETTY_STRUCTURED:
-        return PrettyStructuredPrinter(config: config);
-      case LogType.FLAT:
-        return FlatPrinter(config: config);
-      case LogType.FLAT_STRUCTURED:
-        return FlatStructuredPrinter(config: config);
-      case LogType.PREFIX:
-        return PrefixPrinter(config: config);
-      case LogType.FMT:
-        return FmtPrinter(config: config);
-      case LogType.HYBRID:
-        return HybridPrinter(config: config);
-      case LogType.SIMPLE:
-        return SimplePrinter(config: config);
-    }
-  }
 
   /// Called when a new log entry is emitted by a logger.
   ///
@@ -155,7 +126,7 @@ abstract class LoggingListener {
 /// {@template leaf_logger_listener}
 /// A default implementation of [LoggingListener] that outputs logs to the console.
 ///
-/// [JetLeafLoggingListener] provides a simple and human-readable logging mechanism
+/// [DefaultLoggingListener] provides a simple and human-readable logging mechanism
 /// by printing log messages to the standard output (`stdout`). Each log entry is timestamped,
 /// tagged, and categorized by [LogLevel].
 ///
@@ -198,14 +169,7 @@ abstract class LoggingListener {
 /// ```
 ///
 /// {@endtemplate}
-final class JetLeafLoggingListener extends LoggingListener {
+final class DefaultLoggingListener extends LoggingListener {
   /// {@macro leaf_logger_listener}
-  JetLeafLoggingListener({
-    super.level,
-    super.printer,
-    super.type,
-    super.output,
-    super.name,
-    super.config,
-  });
+  DefaultLoggingListener({super.level, super.printer, super.type, super.output, super.name, super.config});
 }

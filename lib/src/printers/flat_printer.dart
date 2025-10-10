@@ -13,7 +13,7 @@
 // 🔧 Powered by Hapnium — the Dart backend engine 🍃
 
 import '../models/log_record.dart';
-import '../log_printer.dart';
+import '../core/log_printer.dart';
 import '../models/log_config.dart';
 import '../enums/log_step.dart';
 import '../helpers/commons.dart';

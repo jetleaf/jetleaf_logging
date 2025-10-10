@@ -15,7 +15,7 @@
 import '../ansi/ansi_color.dart';
 import '../ansi/ansi_output.dart';
 import '../models/log_record.dart';
-import '../log_printer.dart';
+import '../core/log_printer.dart';
 import '../models/log_config.dart';
 import '../enums/log_step.dart';
 import '../helpers/commons.dart';

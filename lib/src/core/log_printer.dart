@@ -12,12 +12,22 @@
 // 
 // 🔧 Powered by Hapnium — the Dart backend engine 🍃
 
-import 'enums/log_level.dart';
-import 'enums/log_step.dart';
-import 'ansi/ansi_color.dart';
-import 'helpers/commons.dart';
-import 'helpers/stack_trace_parser.dart';
-import 'models/log_record.dart';
+import '../enums/log_level.dart';
+import '../enums/log_step.dart';
+import '../ansi/ansi_color.dart';
+import '../enums/log_type.dart';
+import '../helpers/commons.dart';
+import '../helpers/stack_trace_parser.dart';
+import '../models/log_config.dart';
+import '../models/log_record.dart';
+import '../printers/flat_printer.dart';
+import '../printers/flat_structured_printer.dart';
+import '../printers/fmt_printer.dart';
+import '../printers/hybrid_printer.dart';
+import '../printers/prefix_printer.dart';
+import '../printers/pretty_printer.dart';
+import '../printers/pretty_structured_printer.dart';
+import '../printers/simple_printer.dart';
 
 /// {@template logPrinter}
 /// A base class for implementing custom log output formatting.
@@ -142,5 +152,29 @@ abstract class LogPrinter {
     }
 
     return value.toString();
+  }
+
+  /// Returns a new [LogPrinter] instance for the given [type].
+  /// 
+  /// {@macro log_printer}
+  static LogPrinter get(LogType type, LogConfig config) {
+    switch (type) {
+      case LogType.PRETTY:
+        return PrettyPrinter(config: config);
+      case LogType.PRETTY_STRUCTURED:
+        return PrettyStructuredPrinter(config: config);
+      case LogType.FLAT:
+        return FlatPrinter(config: config);
+      case LogType.FLAT_STRUCTURED:
+        return FlatStructuredPrinter(config: config);
+      case LogType.PREFIX:
+        return PrefixPrinter(config: config);
+      case LogType.FMT:
+        return FmtPrinter(config: config);
+      case LogType.HYBRID:
+        return HybridPrinter(config: config);
+      case LogType.SIMPLE:
+        return SimplePrinter(config: config);
+    }
   }
 }

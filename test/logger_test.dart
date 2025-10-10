@@ -26,7 +26,7 @@ import 'pretty_printer_test.dart' as pretty_printer_test;
 void main() => group('Logger Tests', () {
   test('should create logger with default settings', () {
     final logger = Logger();
-    expect(logger.listener.runtimeType, equals(JetLeafLoggingListener));
+    expect(logger.listener.runtimeType, equals(DefaultLoggingListener));
     expect(logger.listener, isA<LoggingListener>());
   });
 

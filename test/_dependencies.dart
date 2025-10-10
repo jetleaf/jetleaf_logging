@@ -13,7 +13,6 @@
 // 🔧 Powered by Hapnium — the Dart backend engine 🍃
 
 import 'package:jetleaf_logging/logging.dart';
-import 'package:jetleaf_logging/src/models/log_record.dart';
 
 LogRecord sampleRecord({
   String message = "Test log",

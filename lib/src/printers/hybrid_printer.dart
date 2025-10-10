@@ -14,7 +14,7 @@
 
 import '../enums/log_level.dart';
 import '../models/log_record.dart';
-import '../log_printer.dart';
+import '../core/log_printer.dart';
 import '../models/log_config.dart';
 import 'pretty_printer.dart';
 import 'simple_printer.dart';
