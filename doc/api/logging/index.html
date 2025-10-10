@@ -204,8 +204,8 @@ void main() {
   A utility class for formatting terminal output using ANSI colors and background styles.
 </dd>
 
-          <dt id="JetLeafLoggingListener">
-  <span class="name "><a href="../logging/JetLeafLoggingListener-class.html">JetLeafLoggingListener</a></span> 
+          <dt id="DefaultLoggingListener">
+  <span class="name "><a href="../logging/DefaultLoggingListener-class.html">DefaultLoggingListener</a></span> 
 
 </dt>
 <dd>
@@ -258,6 +258,23 @@ void main() {
 </dt>
 <dd>
   A base class for implementing custom log output formatting.
+</dd>
+
+          <dt id="LogProperties">
+  <span class="name "><a href="../logging/LogProperties-class.html">LogProperties</a></span> 
+
+</dt>
+<dd>
+  A small, thread-safe global registry for logging configuration
+and diagnostic properties within Jetleaf.
+</dd>
+
+          <dt id="LogRecord">
+  <span class="name "><a href="../logging/LogRecord-class.html">LogRecord</a></span> 
+
+</dt>
+<dd>
+  A <code>LogRecord</code> represents a single logging event captured by the logging system.
 </dd>
 
       </dl>
@@ -316,41 +333,6 @@ void main() {
     </section>
 
 
-    <section class="summary offset-anchor" id="typedefs">
-      <h2>Typedefs</h2>
-      <dl>
-          
-  <dt id="LogContent" class="">
-  <span class="name"><a href="../logging/LogContent.html">LogContent</a></span>
-    = <a href="https://api.dart.dev/stable/3.9.0/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span>
-  </span>
-  
-
-</dt>
-<dd>
-  The log content.
-  
-
-</dd>
-
-
-          
-  <dt id="LogEntry" class="">
-  <span class="name"><a href="../logging/LogEntry.html">LogEntry</a></span>
-    = <a href="https://api.dart.dev/stable/3.9.0/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span>, <span class="type-parameter">_LogInformation</span>&gt;</span>
-  </span>
-  
-
-</dt>
-<dd>
-  The log entry.
-  
-
-</dd>
-
-
-      </dl>
-    </section>
 
   </div> <!-- /.main-content -->
   <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">

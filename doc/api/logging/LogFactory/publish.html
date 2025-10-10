@@ -78,7 +78,7 @@ and publishes them to the console if <a href="../../logging/LogFactory/canPublis
   <pre class="language-dart"><code class="language-dart">void publish() {
   if(canPublish.isFalse) {
     if(_logs.isNotEmpty) {
-      _logs.forEach((LogLevel level, _LogDetails details) {
+      _logs.forEach((LogLevel level, _LogFactoryDetails details) {
         details.forEach((timestamp, content) {
           _log(level, getMessage(content), error: getError(content), stacktrace: getStackTrace(content));
         });

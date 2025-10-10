@@ -55,8 +55,8 @@
     <section class="multi-line-signature">
       
 <span class="returntype"><a href="../../logging/Log-class.html">Log</a></span>
-<span class="name ">getLog</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getLog-param-type"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Type-class.html">Type</a></span> <span class="parameter-name">type</span>, {</span></li>
-<li><span class="parameter" id="getLog-param-canPublish"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">canPublish</span> = <span class="default-value">true</span>, </span></li>
+<span class="name ">getLog</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getLog-param-type"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/Type-class.html">Type</a></span> <span class="parameter-name">type</span>, {</span></li>
+<li><span class="parameter" id="getLog-param-canPublish"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">canPublish</span> = <span class="default-value">true</span>, </span></li>
 </ol>})
 
       
@@ -86,9 +86,7 @@ of log messages, such as a class or module name.</p>
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Log getLog(Type type, {bool canPublish = true}) {
-  return Log(type.toString(), canPublish: canPublish);
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">static Log getLog(Type type, {bool canPublish = true}) =&gt; Log(type.toString(), canPublish: canPublish);</code></pre>
 </section>
 
 

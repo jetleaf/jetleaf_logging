@@ -54,11 +54,16 @@
 
     <section class="multi-line-signature">
       
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.dart.dev/stable/3.9.2/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
 <span class="returntype">void</span>
 <span class="name ">info</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="info-param-message"><span class="type-annotation">dynamic</span> <span class="parameter-name">message</span>, {</span></li>
-<li><span class="parameter" id="info-param-tag"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">tag</span>, </span></li>
-<li><span class="parameter" id="info-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span></li>
-<li><span class="parameter" id="info-param-stackTrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span>, </span></li>
+<li><span class="parameter" id="info-param-tag"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">tag</span>, </span></li>
+<li><span class="parameter" id="info-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span></li>
+<li><span class="parameter" id="info-param-stackTrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span>, </span></li>
 </ol>})
 
       
@@ -67,14 +72,24 @@
     
 <section class="desc markdown">
   <p>Logs a message with <a href="../../logging/LogLevel.html">LogLevel.INFO</a>.</p>
-<p>Use this for standard log messages that confirm normal application behavior.</p>
+<p>Use this for standard log messages confirming normal application behavior.</p>
+<p>Example:</p>
+<pre class="language-dart"><code class="language-dart">logger.info('Application started', tag: 'AppInit');
+</code></pre>
+<ul>
+<li><code>message</code>: The log message or object to log.</li>
+<li><code>tag</code>: Optional string categorizing the log (e.g. 'DB', 'Auth').</li>
+<li><code>error</code>: An associated error or exception.</li>
+<li><code>stackTrace</code>: An optional stack trace for context.</li>
+</ul>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void info(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
+  <pre class="language-dart"><code class="language-dart">@override
+void info(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
   listener.onLog(LogLevel.INFO, message, error: error, stackTrace: stackTrace, tag: tag);
 }</code></pre>
 </section>

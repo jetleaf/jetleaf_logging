@@ -54,11 +54,16 @@
 
     <section class="multi-line-signature">
       
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.dart.dev/stable/3.9.2/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
 <span class="returntype">void</span>
 <span class="name ">trace</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="trace-param-message"><span class="type-annotation">dynamic</span> <span class="parameter-name">message</span>, {</span></li>
-<li><span class="parameter" id="trace-param-tag"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">tag</span>, </span></li>
-<li><span class="parameter" id="trace-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span></li>
-<li><span class="parameter" id="trace-param-stackTrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span>, </span></li>
+<li><span class="parameter" id="trace-param-tag"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">tag</span>, </span></li>
+<li><span class="parameter" id="trace-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span></li>
+<li><span class="parameter" id="trace-param-stackTrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span>, </span></li>
 </ol>})
 
       
@@ -67,15 +72,19 @@
     
 <section class="desc markdown">
   <p>Logs a message with <a href="../../logging/LogLevel.html">LogLevel.TRACE</a>.</p>
-<p>Use this for deep tracing information such as lifecycle details,
-low-level diagnostics, or fine-grained application flow.</p>
+<p>Use this for the <strong>most fine-grained logging level</strong>, helpful for tracing code paths
+or investigating rare edge cases.</p>
+<p>Example:</p>
+<pre class="language-dart"><code class="language-dart">logger.trace('Entering method process()', tag: 'Pipeline');
+</code></pre>
 </section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">void trace(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
+  <pre class="language-dart"><code class="language-dart">@override
+void trace(dynamic message, {String? tag, Object? error, StackTrace? stackTrace}) {
   listener.onLog(LogLevel.TRACE, message, error: error, stackTrace: stackTrace, tag: tag);
 }</code></pre>
 </section>

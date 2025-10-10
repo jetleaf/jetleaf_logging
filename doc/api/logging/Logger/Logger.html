@@ -57,10 +57,11 @@
       <span class="name ">Logger</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="-param-level"><span class="type-annotation"><a href="../../logging/LogLevel.html">LogLevel</a></span> <span class="parameter-name">level</span> = <span class="default-value">LogLevel.INFO</span>, </span></li>
 <li><span class="parameter" id="-param-printer"><span class="type-annotation"><a href="../../logging/LogPrinter-class.html">LogPrinter</a>?</span> <span class="parameter-name">printer</span>, </span></li>
 <li><span class="parameter" id="-param-type"><span class="type-annotation"><a href="../../logging/LogType.html">LogType</a></span> <span class="parameter-name">type</span> = <span class="default-value">LogType.SIMPLE</span>, </span></li>
-<li><span class="parameter" id="-param-output"><span class="type-annotation">void</span> <span class="parameter-name">output</span>(<ol class="parameter-list single-line"> <li><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span></span></li>
+<li><span class="parameter" id="-param-output"><span class="type-annotation">void</span> <span class="parameter-name">output</span>(<ol class="parameter-list single-line"> <li><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a></span></span></li>
 </ol>)?, </span></li>
-<li><span class="parameter" id="-param-name"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.0/dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span> = <span class="default-value">&quot;&quot;</span>, </span></li>
+<li><span class="parameter" id="-param-name"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span> = <span class="default-value">&quot;&quot;</span>, </span></li>
 <li><span class="parameter" id="-param-config"><span class="type-annotation"><a href="../../logging/LogConfig-class.html">LogConfig</a>?</span> <span class="parameter-name">config</span>, </span></li>
+<li><span class="parameter" id="-param-listener"><span class="type-annotation"><a href="../../logging/LoggingListener-class.html">LoggingListener</a>?</span> <span class="parameter-name">listener</span>, </span></li>
 </ol>})
     </section>
     
@@ -95,7 +96,8 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
   void Function(String)? output,
   String name = &quot;&quot;,
   LogConfig? config,
-}) : listener = JetLeafLoggingListener(
+  LoggingListener? listener,
+}) : listener = listener ?? DefaultLoggingListener(
   level: level,
   printer: printer,
   type: type,

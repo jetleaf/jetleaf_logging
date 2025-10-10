@@ -54,8 +54,8 @@
 
     <section class="multi-line-signature">
       
-<span class="returntype"><a href="https://api.dart.dev/stable/3.9.0/dart-core/Object-class.html">Object</a>?</span>
-<span class="name ">getError</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getError-param-content"><span class="type-annotation"><a href="../../logging/LogContent.html">LogContent</a></span> <span class="parameter-name">content</span></span></li>
+<span class="returntype"><a href="https://api.dart.dev/stable/3.9.2/dart-core/Object-class.html">Object</a>?</span>
+<span class="name ">getError</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="getError-param-content"><span class="type-annotation">_LogFactoryContent</span> <span class="parameter-name">content</span></span></li>
 </ol>)
 
       
@@ -94,9 +94,7 @@ logger.flush();
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Object? getError(LogContent content) {
-  return content[&quot;error&quot;];
-}</code></pre>
+  <pre class="language-dart"><code class="language-dart">Object? getError(_LogFactoryContent content) =&gt; content.error;</code></pre>
 </section>
 
 
