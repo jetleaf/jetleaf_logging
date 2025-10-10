@@ -1,7 +1,7 @@
 name: jetleaf_logging
 description: A library that provides a pluggable, highly customizable logging solution for applications that require clarity, consistency, and control over how logs are captured, formatted, and displayed.
 version: 1.0.0
-publisher: jetleaf.hapnium.com
+
 homepage: https://jetleaf.hapnium.com
 repository: https://github.com/jetleaf/jetleaf_logging
 
