@@ -115,7 +115,7 @@ abstract class LogFactory with _LogProperty {
   /// Returns a new [Log] instance for the given [type].
   /// 
   /// {@macro log}
-  static Log getLog(Type type, {bool canPublish = true}) => Log(type.toString(), canPublish: canPublish);
+  static Log getLog(Object type, {bool canPublish = true}) => Log(type.toString(), canPublish: canPublish);
 
   /// Assigns a global [LoggingListener] that applies to all `LogFactory` instances.
   static void setGlobalLoggingListener(LoggingListener listener) {

@@ -122,6 +122,7 @@ export 'src/core/logging_listener.dart';
 export 'src/core/log_factory.dart';
 export 'src/core/log.dart';
 
+export 'src/helpers/commons.dart';
 /// {@template logger}
 /// A flexible and extensible logging interface.
 ///
