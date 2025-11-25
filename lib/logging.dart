@@ -12,90 +12,72 @@
 // 
 // 🔧 Powered by Hapnium — the Dart backend engine 🍃
 
-/// {@template logger_library}
-/// A flexible and extensible structured logging library for Dart and Flutter.
+/// 📝 **JetLeaf Logging System**
 ///
-/// The `jetleaf_log` library provides a pluggable, highly customizable logging solution
-/// for applications that require clarity, consistency, and control over how logs are
-/// captured, formatted, and displayed.
+/// This library provides the core logging infrastructure for the JetLeaf
+/// framework, including log levels, formatting, configuration models,
+/// output handling, and extensible logging pipelines.
 ///
-/// ---
+/// It serves as the public entry point to JetLeaf's logging API.
 ///
-/// ### 🔧 Features:
-/// - Multiple log levels: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, `FATAL`
-/// - Structured, human-readable, and colorized output
-/// - Supports tagging, timestamps, error handling, stack traces, and more
-/// - Easily switch or create custom log output styles via `LogPrinter`
-/// - Customizable logging steps (`LogStep`) to include/exclude parts of a log
 ///
-/// ---
+/// ## 🔥 Key Features
 ///
-/// ### 🖨️ Built-in Printer Types (via `LogType`)
+/// - Flexible log level control (trace → fatal)
+/// - ANSI-styled console output
+/// - Structured log records
+/// - Configurable printers and listeners
+/// - Extensible logging factory and entrypoints
 ///
-/// | Type                | Description                                                                 | Output Style         | Structured | Colorized |
-/// |---------------------|-----------------------------------------------------------------------------|----------------------|------------|-----------|
-/// | `SIMPLE`            | Concise single-line output with optional emoji and tags                     | Minimal              | ❌          | ✔️         |
-/// | `FLAT`              | Flat, raw output of the message only                                         | Plain                | ❌          | ❌         |
-/// | `FLAT_STRUCTURED`   | Flat output with structured fields like level, timestamp, etc.               | One-line Structured  | ✔️          | ❌         |
-/// | `PRETTY`            | Formatted and aligned multi-line logs                                       | Multi-line           | ❌          | ✔️         |
-/// | `PRETTY_STRUCTURED` | Verbose, pretty-printed logs with section headers and stack traces          | Multi-line Structured| ✔️          | ✔️         |
-/// | `PREFIX`            | Logs prefixed with info like `[T:main]` or `[INFO]`                          | Prefixed             | ✔️          | ❌         |
-/// | `FMT`               | C-style formatted string logger                                              | Formatted Strings    | ❌          | ❌         |
-/// | `HYBRID`            | Combines pretty and structured logging for detailed yet readable output     | Mixed Style          | ✔️          | ✔️         |
 ///
-/// ---
+/// ## 📦 Exports Overview
 ///
-/// ### 🛠️ Creating a Custom Printer
+/// ### 🧾 Log Enums
+/// - `LogLevel` — severity classification
+/// - `LogStep` — lifecycle phases (e.g., start/end)
+/// - `LogType` — categorization of log intent
 ///
-/// To define a custom log printer, extend the [LogPrinter] abstract class:
 ///
+/// ### 🎨 ANSI Output
+/// - `AnsiColor` — terminal-safe color/style definitions  
+/// - `AnsiOutput` — utilities for rendering styled log text
+///
+/// Useful for rich console diagnostics.
+///
+///
+/// ### 📑 Log Models
+/// - `LogConfig` — runtime configuration for logging behavior  
+/// - `LogRecord` — immutable representation of a logged event
+///
+/// Enables structured logging and external routing.
+///
+///
+/// ### ⚙️ Core Logging Engine
+/// - `LogPrinter` — strategy interface for rendering logs  
+/// - `LoggingListener` — event subscription for log emission  
+/// - `LogFactory` — responsible for creating log instances  
+/// - `Log` — primary logging API entrypoint
+///
+/// Example usage:
 /// ```dart
-/// class MyCustomPrinter extends LogPrinter {
-///   @override
-///   List<String> log(LogRecord record) {
-///     return ['[${record.level.name}] ${record.message}'];
-///   }
-/// }
+/// final log = LogFactory.get('server');
+/// log.info('Server started');
 /// ```
 ///
-/// Then attach your printer to a custom tracing listener:
 ///
+/// ### 🛠 Helpers
+/// - common utility functions supporting the logging system
+///
+///
+/// ## ✅ Intended Usage
+///
+/// Import once to access the complete JetLeaf logging API:
 /// ```dart
-/// final myLogger = Jet();
-/// myLogger.addListener(LoggerListener.withPrinter(MyCustomPrinter()));
-/// myLogger.info('Hello from custom logger!');
+/// import 'package:jetleaf_logging/logging.dart';
 /// ```
 ///
-/// ---
-///
-/// ### 🧪 Quick Usage Example
-///
-/// ```dart
-/// import 'package:jetleaf/logger.dart';
-///
-/// void main() {
-///   console.debug('Initializing system...');
-///   console.error('Failed to connect', error: Exception('Timeout'));
-/// }
-/// ```
-///
-/// ---
-///
-/// ### 📦 Exports:
-/// This library exports core types and interfaces:
-///
-/// - [LogLevel] — log severity levels
-/// - [LogStep] — defines log components like timestamp, message, error, etc.
-/// - [JetType] — enum for built-in printer styles
-/// - [LogPrinter] — base class for custom printer implementations
-/// - [LoggingListener] — interface for log event listening
-/// 
-/// {@endtemplate}
-/// 
-/// @author Evaristus Adimonyemma
-/// @emailAddress evaristusadimonyemma@hapnium.com
-/// @organization Hapnium
-/// @website https://hapnium.com
+/// Designed for framework and application-level diagnostics,
+/// with extensibility for custom sinks, printers, and integrations.
 library;
 
 import 'src/enums/log_level.dart';
@@ -123,6 +105,7 @@ export 'src/core/log_factory.dart';
 export 'src/core/log.dart';
 
 export 'src/helpers/commons.dart';
+
 /// {@template logger}
 /// A flexible and extensible logging interface.
 ///
