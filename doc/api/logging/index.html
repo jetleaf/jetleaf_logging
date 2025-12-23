@@ -60,128 +60,59 @@
 
     
 <section class="desc markdown">
-  <p>A flexible and extensible structured logging library for Dart and Flutter.</p>
-<p>The <code>jetleaf_log</code> library provides a pluggable, highly customizable logging solution
-for applications that require clarity, consistency, and control over how logs are
-captured, formatted, and displayed.</p>
-<hr>
-<h3 id="-features">🔧 Features:</h3>
+  <p>📝 <strong>JetLeaf Logging System</strong></p>
+<p>This library provides the core logging infrastructure for the JetLeaf
+framework, including log levels, formatting, configuration models,
+output handling, and extensible logging pipelines.</p>
+<p>It serves as the public entry point to JetLeaf's logging API.</p>
+<h2 id="-key-features">🔥 Key Features</h2>
 <ul>
-<li>Multiple log levels: <code>TRACE</code>, <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, <code>ERROR</code>, <code>FATAL</code></li>
-<li>Structured, human-readable, and colorized output</li>
-<li>Supports tagging, timestamps, error handling, stack traces, and more</li>
-<li>Easily switch or create custom log output styles via <code>LogPrinter</code></li>
-<li>Customizable logging steps (<code>LogStep</code>) to include/exclude parts of a log</li>
+<li>Flexible log level control (trace → fatal)</li>
+<li>ANSI-styled console output</li>
+<li>Structured log records</li>
+<li>Configurable printers and listeners</li>
+<li>Extensible logging factory and entrypoints</li>
 </ul>
-<hr>
-<h3 id="-built-in-printer-types-via-logtype">🖨️ Built-in Printer Types (via <code>LogType</code>)</h3>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Output Style</th>
-<th>Structured</th>
-<th>Colorized</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>SIMPLE</code></td>
-<td>Concise single-line output with optional emoji and tags</td>
-<td>Minimal</td>
-<td>❌</td>
-<td>✔️</td>
-</tr>
-<tr>
-<td><code>FLAT</code></td>
-<td>Flat, raw output of the message only</td>
-<td>Plain</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><code>FLAT_STRUCTURED</code></td>
-<td>Flat output with structured fields like level, timestamp, etc.</td>
-<td>One-line Structured</td>
-<td>✔️</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><code>PRETTY</code></td>
-<td>Formatted and aligned multi-line logs</td>
-<td>Multi-line</td>
-<td>❌</td>
-<td>✔️</td>
-</tr>
-<tr>
-<td><code>PRETTY_STRUCTURED</code></td>
-<td>Verbose, pretty-printed logs with section headers and stack traces</td>
-<td>Multi-line Structured</td>
-<td>✔️</td>
-<td>✔️</td>
-</tr>
-<tr>
-<td><code>PREFIX</code></td>
-<td>Logs prefixed with info like <code>[T:main]</code> or <code>[INFO]</code></td>
-<td>Prefixed</td>
-<td>✔️</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><code>FMT</code></td>
-<td>C-style formatted string logger</td>
-<td>Formatted Strings</td>
-<td>❌</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><code>HYBRID</code></td>
-<td>Combines pretty and structured logging for detailed yet readable output</td>
-<td>Mixed Style</td>
-<td>✔️</td>
-<td>✔️</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h3 id="-creating-a-custom-printer">🛠️ Creating a Custom Printer</h3>
-<p>To define a custom log printer, extend the <a href="../logging/LogPrinter-class.html">LogPrinter</a> abstract class:</p>
-<pre class="language-dart"><code class="language-dart">class MyCustomPrinter extends LogPrinter {
-  @override
-  List&lt;String&gt; log(LogRecord record) {
-    return ['[${record.level.name}] ${record.message}'];
-  }
-}
-</code></pre>
-<p>Then attach your printer to a custom tracing listener:</p>
-<pre class="language-dart"><code class="language-dart">final myLogger = Jet();
-myLogger.addListener(LoggerListener.withPrinter(MyCustomPrinter()));
-myLogger.info('Hello from custom logger!');
-</code></pre>
-<hr>
-<h3 id="-quick-usage-example">🧪 Quick Usage Example</h3>
-<pre class="language-dart"><code class="language-dart">import 'package:jetleaf/logger.dart';
-
-void main() {
-  console.debug('Initializing system...');
-  console.error('Failed to connect', error: Exception('Timeout'));
-}
-</code></pre>
-<hr>
-<h3 id="-exports">📦 Exports:</h3>
-<p>This library exports core types and interfaces:</p>
+<h2 id="-exports-overview">📦 Exports Overview</h2>
+<h3 id="-log-enums">🧾 Log Enums</h3>
 <ul>
-<li><a href="../logging/LogLevel.html">LogLevel</a> — log severity levels</li>
-<li><a href="../logging/LogStep.html">LogStep</a> — defines log components like timestamp, message, error, etc.</li>
-<li><code>JetType</code> — enum for built-in printer styles</li>
-<li><a href="../logging/LogPrinter-class.html">LogPrinter</a> — base class for custom printer implementations</li>
-<li><a href="../logging/LoggingListener-class.html">LoggingListener</a> — interface for log event listening</li>
+<li><code>LogLevel</code> — severity classification</li>
+<li><code>LogStep</code> — lifecycle phases (e.g., start/end)</li>
+<li><code>LogType</code> — categorization of log intent</li>
 </ul>
-<p>@author Evaristus Adimonyemma
-@emailAddress <a href="mailto:evaristusadimonyemma@hapnium.com">evaristusadimonyemma@hapnium.com</a>
-@organization Hapnium
-@website <a href="https://hapnium.com">https://hapnium.com</a></p>
+<h3 id="-ansi-output">🎨 ANSI Output</h3>
+<ul>
+<li><code>AnsiColor</code> — terminal-safe color/style definitions</li>
+<li><code>AnsiOutput</code> — utilities for rendering styled log text</li>
+</ul>
+<p>Useful for rich console diagnostics.</p>
+<h3 id="-log-models">📑 Log Models</h3>
+<ul>
+<li><code>LogConfig</code> — runtime configuration for logging behavior</li>
+<li><code>LogRecord</code> — immutable representation of a logged event</li>
+</ul>
+<p>Enables structured logging and external routing.</p>
+<h3 id="-core-logging-engine">⚙️ Core Logging Engine</h3>
+<ul>
+<li><code>LogPrinter</code> — strategy interface for rendering logs</li>
+<li><code>LoggingListener</code> — event subscription for log emission</li>
+<li><code>LogFactory</code> — responsible for creating log instances</li>
+<li><code>Log</code> — primary logging API entrypoint</li>
+</ul>
+<p>Example usage:</p>
+<pre class="language-dart"><code class="language-dart">final log = LogFactory.get('server');
+log.info('Server started');
+</code></pre>
+<h3 id="-helpers">🛠 Helpers</h3>
+<ul>
+<li>common utility functions supporting the logging system</li>
+</ul>
+<h2 id="-intended-usage">✅ Intended Usage</h2>
+<p>Import once to access the complete JetLeaf logging API:</p>
+<pre class="language-dart"><code class="language-dart">import 'package:jetleaf_logging/logging.dart';
+</code></pre>
+<p>Designed for framework and application-level diagnostics,
+with extensibility for custom sinks, printers, and integrations.</p>
 </section>
 
 
@@ -189,7 +120,7 @@ void main() {
       <h2>Classes</h2>
       <dl>
           <dt id="AnsiColor">
-  <span class="name "><a href="../logging/AnsiColor-class.html">AnsiColor</a></span> 
+  <span class="name "><a href="../jetleaf_logging/AnsiColor-class.html">AnsiColor</a></span> 
 
 </dt>
 <dd>
@@ -197,7 +128,7 @@ void main() {
 </dd>
 
           <dt id="AnsiOutput">
-  <span class="name "><a href="../logging/AnsiOutput-class.html">AnsiOutput</a></span> 
+  <span class="name "><a href="../jetleaf_logging/AnsiOutput-class.html">AnsiOutput</a></span> 
 
 </dt>
 <dd>
@@ -205,23 +136,31 @@ void main() {
 </dd>
 
           <dt id="DefaultLoggingListener">
-  <span class="name "><a href="../logging/DefaultLoggingListener-class.html">DefaultLoggingListener</a></span> 
+  <span class="name "><a href="../jetleaf_logging/DefaultLoggingListener-class.html">DefaultLoggingListener</a></span> 
 
 </dt>
 <dd>
-  A default implementation of <a href="../logging/LoggingListener-class.html">LoggingListener</a> that outputs logs to the console.
+  A default implementation of <a href="../jetleaf_logging/LoggingListener-class.html">LoggingListener</a> that outputs logs to the console.
 </dd>
 
           <dt id="Log">
-  <span class="name "><a href="../logging/Log-class.html">Log</a></span> 
+  <span class="name "><a href="../jetleaf_logging/Log-class.html">Log</a></span> 
 
 </dt>
 <dd>
-  A convenient logging utility built on top of <a href="../logging/LogFactory-class.html">LogFactory</a>.
+  A convenient logging utility built on top of <a href="../jetleaf_logging/LogFactory-class.html">LogFactory</a>.
+</dd>
+
+          <dt id="LogCommons">
+  <span class="name "><a href="../jetleaf_logging/LogCommons-class.html">LogCommons</a></span> 
+
+</dt>
+<dd>
+  A utility class that provides common styling and symbols for different <a href="../jetleaf_logging/LogLevel.html">LogLevel</a>s.
 </dd>
 
           <dt id="LogConfig">
-  <span class="name "><a href="../logging/LogConfig-class.html">LogConfig</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LogConfig-class.html">LogConfig</a></span> 
 
 </dt>
 <dd>
@@ -229,7 +168,7 @@ void main() {
 </dd>
 
           <dt id="LogFactory">
-  <span class="name "><a href="../logging/LogFactory-class.html">LogFactory</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LogFactory-class.html">LogFactory</a></span> 
 
 </dt>
 <dd>
@@ -245,7 +184,7 @@ void main() {
 </dd>
 
           <dt id="LoggingListener">
-  <span class="name "><a href="../logging/LoggingListener-class.html">LoggingListener</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LoggingListener-class.html">LoggingListener</a></span> 
 
 </dt>
 <dd>
@@ -253,7 +192,7 @@ void main() {
 </dd>
 
           <dt id="LogPrinter">
-  <span class="name "><a href="../logging/LogPrinter-class.html">LogPrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LogPrinter-class.html">LogPrinter</a></span> 
 
 </dt>
 <dd>
@@ -261,7 +200,7 @@ void main() {
 </dd>
 
           <dt id="LogProperties">
-  <span class="name "><a href="../logging/LogProperties-class.html">LogProperties</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LogProperties-class.html">LogProperties</a></span> 
 
 </dt>
 <dd>
@@ -270,7 +209,7 @@ and diagnostic properties within Jetleaf.
 </dd>
 
           <dt id="LogRecord">
-  <span class="name "><a href="../logging/LogRecord-class.html">LogRecord</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LogRecord-class.html">LogRecord</a></span> 
 
 </dt>
 <dd>
@@ -284,7 +223,7 @@ and diagnostic properties within Jetleaf.
       <h2>Enums</h2>
       <dl>
           <dt id="LogLevel">
-  <span class="name "><a href="../logging/LogLevel.html">LogLevel</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LogLevel.html">LogLevel</a></span> 
 
 </dt>
 <dd>
@@ -292,7 +231,7 @@ and diagnostic properties within Jetleaf.
 </dd>
 
           <dt id="LogStep">
-  <span class="name "><a href="../logging/LogStep.html">LogStep</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LogStep.html">LogStep</a></span> 
 
 </dt>
 <dd>
@@ -300,7 +239,7 @@ and diagnostic properties within Jetleaf.
 </dd>
 
           <dt id="LogType">
-  <span class="name "><a href="../logging/LogType.html">LogType</a></span> 
+  <span class="name "><a href="../jetleaf_logging/LogType.html">LogType</a></span> 
 
 </dt>
 <dd>
@@ -318,7 +257,7 @@ and diagnostic properties within Jetleaf.
       <h2>Properties</h2>
       <dl class="properties">
           <dt id="console" class="property">
-  <span class="name"><a href="../logging/console.html">console</a></span>
+  <span class="name"><a href="../jetleaf_logging/console.html">console</a></span>
   <span class="signature">&#8594; <a href="../logging/Logger-class.html">Logger</a></span>
   
 
@@ -350,6 +289,7 @@ and diagnostic properties within Jetleaf.
     <h5><span class="package-name">jetleaf_logging</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
+      <li><a href="../jetleaf_logging/">jetleaf_logging</a></li>
       <li><a href="../logging/">logging</a></li>
       <li><a href="../printers/">printers</a></li>
 </ol>
@@ -362,7 +302,7 @@ and diagnostic properties within Jetleaf.
 <footer>
   <span class="no-break">
     jetleaf_logging
-      1.0.0
+      1.1.1
   </span>
   
 </footer>

@@ -56,7 +56,7 @@
 <section class="desc markdown">
   <p>A flexible and extensible logging interface.</p>
 <p>The <a href="../logging/Logger-class.html">Logger</a> class provides structured and leveled logging functionality
-across your application. It wraps a <a href="../logging/LoggingListener-class.html">LoggingListener</a> that handles
+across your application. It wraps a <a href="../jetleaf_logging/LoggingListener-class.html">LoggingListener</a> that handles
 how logs are processed and output—making it customizable through the strategy pattern.</p>
 <p>This class offers six common logging levels:</p>
 <ul>
@@ -80,7 +80,7 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
     <h2>Constructors</h2>
     <dl class="constructor-summary-list">
         <dt id="Logger.new" class="callable">
-          <span class="name"><a href="../logging/Logger/Logger.html">Logger.new</a></span><span class="signature">({<span class="parameter" id="-param-level"><span class="type-annotation"><a href="../logging/LogLevel.html">LogLevel</a></span> <span class="parameter-name">level</span> = <span class="default-value">LogLevel.INFO</span>, </span><span class="parameter" id="-param-printer"><span class="type-annotation"><a href="../logging/LogPrinter-class.html">LogPrinter</a>?</span> <span class="parameter-name">printer</span>, </span><span class="parameter" id="-param-type"><span class="type-annotation"><a href="../logging/LogType.html">LogType</a></span> <span class="parameter-name">type</span> = <span class="default-value">LogType.SIMPLE</span>, </span><span class="parameter" id="-param-output"><span class="type-annotation">void</span> <span class="parameter-name">output</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a></span></span>)?, </span><span class="parameter" id="-param-name"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span> = <span class="default-value">&quot;&quot;</span>, </span><span class="parameter" id="-param-config"><span class="type-annotation"><a href="../logging/LogConfig-class.html">LogConfig</a>?</span> <span class="parameter-name">config</span>, </span><span class="parameter" id="-param-listener"><span class="type-annotation"><a href="../logging/LoggingListener-class.html">LoggingListener</a>?</span> <span class="parameter-name">listener</span></span>})</span>
+          <span class="name"><a href="../logging/Logger/Logger.html">Logger.new</a></span><span class="signature">({<span class="parameter" id="-param-level"><span class="type-annotation"><a href="../jetleaf_logging/LogLevel.html">LogLevel</a></span> <span class="parameter-name">level</span> = <span class="default-value">LogLevel.INFO</span>, </span><span class="parameter" id="-param-printer"><span class="type-annotation"><a href="../jetleaf_logging/LogPrinter-class.html">LogPrinter</a>?</span> <span class="parameter-name">printer</span>, </span><span class="parameter" id="-param-type"><span class="type-annotation"><a href="../jetleaf_logging/LogType.html">LogType</a></span> <span class="parameter-name">type</span> = <span class="default-value">LogType.SIMPLE</span>, </span><span class="parameter" id="-param-output"><span class="type-annotation">void</span> <span class="parameter-name">output</span>(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a></span></span>)?, </span><span class="parameter" id="-param-name"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a></span> <span class="parameter-name">name</span> = <span class="default-value">&quot;&quot;</span>, </span><span class="parameter" id="-param-config"><span class="type-annotation"><a href="../jetleaf_logging/LogConfig-class.html">LogConfig</a>?</span> <span class="parameter-name">config</span>, </span><span class="parameter" id="-param-listener"><span class="type-annotation"><a href="../jetleaf_logging/LoggingListener-class.html">LoggingListener</a>?</span> <span class="parameter-name">listener</span></span>})</span>
         </dt>
         <dd>
           A flexible and extensible logging interface.
@@ -107,7 +107,7 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
 
         <dt id="listener" class="property">
   <span class="name"><a href="../logging/Logger/listener.html">listener</a></span>
-  <span class="signature">&#8596; <a href="../logging/LoggingListener-class.html">LoggingListener</a></span>
+  <span class="signature">&#8596; <a href="../jetleaf_logging/LoggingListener-class.html">LoggingListener</a></span>
   
 
 </dt>
@@ -139,14 +139,14 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
     <h2>Methods</h2>
     <dl class="callables">
         <dt id="addListener" class="callable">
-  <span class="name"><a href="../logging/Logger/addListener.html">addListener</a></span><span class="signature">(<wbr><span class="parameter" id="addListener-param-listener"><span class="type-annotation"><a href="../logging/LoggingListener-class.html">LoggingListener</a></span> <span class="parameter-name">listener</span></span>)
+  <span class="name"><a href="../logging/Logger/addListener.html">addListener</a></span><span class="signature">(<wbr><span class="parameter" id="addListener-param-listener"><span class="type-annotation"><a href="../jetleaf_logging/LoggingListener-class.html">LoggingListener</a></span> <span class="parameter-name">listener</span></span>)
     <span class="returntype parameter">&#8594; void</span>
   </span>
   
 
 </dt>
 <dd>
-  Replaces the current <a href="../logging/LoggingListener-class.html">LoggingListener</a> with a custom implementation.
+  Replaces the current <a href="../jetleaf_logging/LoggingListener-class.html">LoggingListener</a> with a custom implementation.
   
 
 </dd>
@@ -159,7 +159,7 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
 
 </dt>
 <dd>
-  Logs a message with <a href="../logging/LogLevel.html">LogLevel.DEBUG</a>.
+  Logs a message with <a href="../jetleaf_logging/LogLevel.html">LogLevel.DEBUG</a>.
   
 
 </dd>
@@ -172,7 +172,7 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
 
 </dt>
 <dd>
-  Logs a message with <a href="../logging/LogLevel.html">LogLevel.ERROR</a>.
+  Logs a message with <a href="../jetleaf_logging/LogLevel.html">LogLevel.ERROR</a>.
   
 
 </dd>
@@ -185,7 +185,7 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
 
 </dt>
 <dd>
-  Logs a message with <a href="../logging/LogLevel.html">LogLevel.FATAL</a>.
+  Logs a message with <a href="../jetleaf_logging/LogLevel.html">LogLevel.FATAL</a>.
   
 
 </dd>
@@ -198,13 +198,13 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
 
 </dt>
 <dd>
-  Logs a message with <a href="../logging/LogLevel.html">LogLevel.INFO</a>.
+  Logs a message with <a href="../jetleaf_logging/LogLevel.html">LogLevel.INFO</a>.
   
 
 </dd>
 
         <dt id="log" class="callable">
-  <span class="name"><a href="../logging/Logger/log.html">log</a></span><span class="signature">(<wbr><span class="parameter" id="log-param-message"><span class="type-annotation">dynamic</span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="log-param-tag"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="log-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="log-param-stackTrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span>, </span><span class="parameter" id="log-param-level"><span class="type-annotation"><a href="../logging/LogLevel.html">LogLevel</a></span> <span class="parameter-name">level</span> = <span class="default-value">LogLevel.INFO</span></span>})
+  <span class="name"><a href="../logging/Logger/log.html">log</a></span><span class="signature">(<wbr><span class="parameter" id="log-param-message"><span class="type-annotation">dynamic</span> <span class="parameter-name">message</span>, {</span><span class="parameter" id="log-param-tag"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">tag</span>, </span><span class="parameter" id="log-param-error"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/Object-class.html">Object</a>?</span> <span class="parameter-name">error</span>, </span><span class="parameter" id="log-param-stackTrace"><span class="type-annotation"><a href="https://api.dart.dev/stable/3.9.2/dart-core/StackTrace-class.html">StackTrace</a>?</span> <span class="parameter-name">stackTrace</span>, </span><span class="parameter" id="log-param-level"><span class="type-annotation"><a href="../jetleaf_logging/LogLevel.html">LogLevel</a></span> <span class="parameter-name">level</span> = <span class="default-value">LogLevel.INFO</span></span>})
     <span class="returntype parameter">&#8594; void</span>
   </span>
   
@@ -250,7 +250,7 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
 
 </dt>
 <dd>
-  Logs a message with <a href="../logging/LogLevel.html">LogLevel.TRACE</a>.
+  Logs a message with <a href="../jetleaf_logging/LogLevel.html">LogLevel.TRACE</a>.
   
 
 </dd>
@@ -263,7 +263,7 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
 
 </dt>
 <dd>
-  Logs a message with <a href="../logging/LogLevel.html">LogLevel.WARN</a>.
+  Logs a message with <a href="../jetleaf_logging/LogLevel.html">LogLevel.WARN</a>.
   
 
 </dd>
@@ -318,7 +318,7 @@ console.error('Unexpected error occurred', error: e, stackTrace: s);
 <footer>
   <span class="no-break">
     jetleaf_logging
-      1.0.0
+      1.1.1
   </span>
   
 </footer>
