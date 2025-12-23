@@ -60,18 +60,53 @@
 
     
 <section class="desc markdown">
-  <p>This library provides a set of log printers that can be used to format log records into a string representation.</p>
-<p>It includes the following printers:</p>
+  <p>🖨️ <strong>JetLeaf Logging Printers</strong></p>
+<p>This library exposes all built-in printer implementations used by the
+JetLeaf logging system to format and render log output.</p>
+<p>Printers control <strong>how logs are displayed</strong>, whether in human-readable,
+compact, or structured formats. They can be combined, customized, or
+replaced with custom implementations.</p>
+<h2 id="-available-printers">🎨 Available Printers</h2>
+<h3 id="-flat-output">📌 Flat Output</h3>
 <ul>
-<li><a href="../printers/FlatPrinter-class.html">FlatPrinter</a></li>
-<li><a href="../printers/FlatStructuredPrinter-class.html">FlatStructuredPrinter</a></li>
-<li><a href="../printers/FmtPrinter-class.html">FmtPrinter</a></li>
-<li><a href="../printers/HybridPrinter-class.html">HybridPrinter</a></li>
-<li><a href="../printers/PrefixPrinter-class.html">PrefixPrinter</a></li>
-<li><a href="../printers/PrettyPrinter-class.html">PrettyPrinter</a></li>
-<li><a href="../printers/PrettyStructuredPrinter-class.html">PrettyStructuredPrinter</a></li>
-<li><a href="../printers/SimplePrinter-class.html">SimplePrinter</a></li>
+<li><code>FlatPrinter</code> — minimal single-line output</li>
+<li><code>FlatStructuredPrinter</code> — flat formatting with structured fields</li>
 </ul>
+<p>Ideal for CLI tools and compact logs.</p>
+<h3 id="-formatted-output">🧾 Formatted Output</h3>
+<ul>
+<li><code>FmtPrinter</code> — template-driven formatting (printf-style)</li>
+</ul>
+<p>Useful when enforcing consistent patterns.</p>
+<h3 id="-hybrid-output">🔀 Hybrid Output</h3>
+<ul>
+<li><code>HybridPrinter</code> — mixes pretty and structured formatting based on context</li>
+</ul>
+<p>Great when balancing human readability and machine parsing.</p>
+<h3 id="-prefixing-support">🏷 Prefixing Support</h3>
+<ul>
+<li><code>PrefixPrinter</code> — adds prefixes (categories, timestamps, thread IDs, etc.)</li>
+</ul>
+<p>Can wrap other printers to extend behavior.</p>
+<h3 id="-pretty-output">🌈 Pretty Output</h3>
+<ul>
+<li><code>PrettyPrinter</code> — colorized, multi-line, developer-friendly formatting</li>
+<li><code>PrettyStructuredPrinter</code> — pretty formatting with structured metadata</li>
+</ul>
+<p>Ideal for debugging and local development.</p>
+<h3 id="-simple-output">✅ Simple Output</h3>
+<ul>
+<li><code>SimplePrinter</code> — lightweight text output without styling</li>
+</ul>
+<p>Good for environments with limited terminal capabilities.</p>
+<h2 id="-intended-usage">🎯 Intended Usage</h2>
+<p>Import to configure logging behavior:</p>
+<pre class="language-dart"><code class="language-dart">import 'package:jetleaf_logging/printers.dart';
+
+final printer = PrettyPrinter();
+</code></pre>
+<p>Printers are typically assigned through <code>LogConfig</code> or <code>LogFactory</code>.</p>
+<p>© 2025 Hapnium &amp; JetLeaf Contributors</p>
 </section>
 
 
@@ -79,7 +114,7 @@
       <h2>Classes</h2>
       <dl>
           <dt id="FlatPrinter">
-  <span class="name "><a href="../printers/FlatPrinter-class.html">FlatPrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/FlatPrinter-class.html">FlatPrinter</a></span> 
 
 </dt>
 <dd>
@@ -87,7 +122,7 @@
 </dd>
 
           <dt id="FlatStructuredPrinter">
-  <span class="name "><a href="../printers/FlatStructuredPrinter-class.html">FlatStructuredPrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/FlatStructuredPrinter-class.html">FlatStructuredPrinter</a></span> 
 
 </dt>
 <dd>
@@ -95,7 +130,7 @@
 </dd>
 
           <dt id="FmtPrinter">
-  <span class="name "><a href="../printers/FmtPrinter-class.html">FmtPrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/FmtPrinter-class.html">FmtPrinter</a></span> 
 
 </dt>
 <dd>
@@ -103,7 +138,7 @@
 </dd>
 
           <dt id="HybridPrinter">
-  <span class="name "><a href="../printers/HybridPrinter-class.html">HybridPrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/HybridPrinter-class.html">HybridPrinter</a></span> 
 
 </dt>
 <dd>
@@ -111,7 +146,7 @@
 </dd>
 
           <dt id="PrefixPrinter">
-  <span class="name "><a href="../printers/PrefixPrinter-class.html">PrefixPrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/PrefixPrinter-class.html">PrefixPrinter</a></span> 
 
 </dt>
 <dd>
@@ -119,7 +154,7 @@
 </dd>
 
           <dt id="PrettyPrinter">
-  <span class="name "><a href="../printers/PrettyPrinter-class.html">PrettyPrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/PrettyPrinter-class.html">PrettyPrinter</a></span> 
 
 </dt>
 <dd>
@@ -127,7 +162,7 @@
 </dd>
 
           <dt id="PrettyStructuredPrinter">
-  <span class="name "><a href="../printers/PrettyStructuredPrinter-class.html">PrettyStructuredPrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/PrettyStructuredPrinter-class.html">PrettyStructuredPrinter</a></span> 
 
 </dt>
 <dd>
@@ -135,7 +170,7 @@
 </dd>
 
           <dt id="SimplePrinter">
-  <span class="name "><a href="../printers/SimplePrinter-class.html">SimplePrinter</a></span> 
+  <span class="name "><a href="../jetleaf_logging/SimplePrinter-class.html">SimplePrinter</a></span> 
 
 </dt>
 <dd>
@@ -169,6 +204,7 @@
     <h5><span class="package-name">jetleaf_logging</span> <span class="package-kind">package</span></h5>
     <ol>
       <li class="section-title">Libraries</li>
+      <li><a href="../jetleaf_logging/">jetleaf_logging</a></li>
       <li><a href="../logging/">logging</a></li>
       <li><a href="../printers/">printers</a></li>
 </ol>
@@ -181,7 +217,7 @@
 <footer>
   <span class="no-break">
     jetleaf_logging
-      1.0.0
+      1.1.1
   </span>
   
 </footer>
